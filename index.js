@@ -518,7 +518,7 @@ export default class ModalBox extends React.PureComponent {
       <View
         importantForAccessibility="yes"
         accessibilityViewIsModal={true}
-        style={[styles.transparent, styles.absolute]}
+        style={[styles.transparent, styles.absolute, this.props.coverScreen ? undefined : this.props.containerStyle]}
         pointerEvents={'box-none'}>
         <View
           style={{flex: 1}}
@@ -539,6 +539,7 @@ export default class ModalBox extends React.PureComponent {
             this.close();
           }
         }}
+        style={this.props.containerStyle}
         supportedOrientations={[
           'landscape',
           'portrait',
